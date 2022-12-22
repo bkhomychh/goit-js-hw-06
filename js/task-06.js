@@ -1,12 +1,15 @@
 const inputRef = document.querySelector('#validation-input');
 
+const switchClasses = (targetRef, addedClass, removedClass) => {
+  targetRef.classList.add(addedClass);
+  targetRef.classList.remove(removedClass);
+};
+
 const checkInput = ({ currentTarget }) => {
   if (currentTarget.value.length === +currentTarget.dataset.length) {
-    currentTarget.classList.add('valid');
-    currentTarget.classList.remove('invalid');
+    switchClasses(currentTarget, 'valid', 'invalid');
   } else {
-    currentTarget.classList.add('invalid');
-    currentTarget.classList.remove('valid');
+    switchClasses(currentTarget, 'invalid', 'valid');
   }
 };
 
